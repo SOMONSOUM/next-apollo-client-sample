@@ -33,6 +33,7 @@ export default function Home() {
 
   if (loading || !data) return (
     <div
+      className='mt-4'
       style={{ display: "flex", justifyContent: "center" }}
     >
       <Spinner>Loading...</Spinner>
@@ -47,12 +48,14 @@ export default function Home() {
             <Col lg={6}>
               <Card
                 style={{
-                  width: '18rem'
+                  width: '16rem'
                 }}
                 key={key}
+                className='mt-2'
               >
                 <img
-                  alt="Sample"
+                  alt=""
+                  className='avatar-sm rounded-circle img-thumbnail'
                   src={x?.profilePicture} />
                 <CardBody>
                   <CardTitle tag="h5">
@@ -62,7 +65,7 @@ export default function Home() {
                     className="mb-2 text-muted"
                     tag="h6"
                   >
-                    Card subtitle
+                    {x?.email}
                   </CardSubtitle>
                   <CardText>
                     Some quick example text to build on the card title and make up the bulk of the card‘s content.
