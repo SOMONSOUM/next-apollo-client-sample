@@ -1,13 +1,17 @@
 import '../styles/main.scss'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import type { AppProps } from 'next/app'
-import { ApolloProvider } from '@apollo/client'
-import { client } from '../apollo/client'
+import { TokenContainer } from '../src/components/Authentication/TokenContext'
+import { AuthProvider } from '../src/hook/auth'
+import LoginVerification from '../src/components/Authentication/LoginVerification'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ApolloProvider client={client}>
-      <Component {...pageProps} />
-    </ApolloProvider >
+    <TokenContainer>
+      <AuthProvider>
+        <LoginVerification>
+          <Component {...pageProps} />
+        </LoginVerification>
+      </AuthProvider>
+    </TokenContainer >
   )
 }
